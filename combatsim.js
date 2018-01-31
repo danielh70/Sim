@@ -24,19 +24,19 @@ function main() {
 
   let testCombatants = [];
   testCombatants.push(Player.generateFullyTrainedPlayer(
-    'CStaff/VSword + Scouts',
-    { hp: 70, speed: 5, accuracy: 4, dodge: 104 },
+    'Dual Rifts w/ Bios (Abyss/Ammy Cs)',
+    { hp: 70, speed: 12, accuracy: 4, dodge: 97 },
     [
       Item.DarkLegionArmor
         .socket(Crystals.allAbyssCrystals),
-      Item.CoreStaff
+      Item.RiftGun
         .socket(Crystals.allAmuletCrystals),
-      Item.VoidSword
-        .socket(Crystals.allPerfectFires),
-      Item.ScoutDrones
-        .socket(Crystals.allPerfectAirs),
-      Item.ScoutDrones
-        .socket(Crystals.allPerfectAirs),
+      Item.RiftGun
+        .socket(Crystals.allAmuletCrystals),
+      Item.BioSpinalEnhancer
+        .socket(Crystals.allPerfectPinks),
+      Item.BioSpinalEnhancer
+        .socket(Crystals.allPerfectPinks),
     ]
   ));
 
@@ -331,6 +331,24 @@ Player.generateReferencePlayers = function() {
     ]
   ));
 
+  // DL (+Voids) + Dual ScytheT2's (+Fires) + Bios (+Pinks)
+  combatants.push(Player.generateFullyTrainedPlayer(
+    'Dual ScytheT2 w/ Bios',
+    { hp: 70, speed: 7, accuracy: 102, dodge: 4 },
+    [
+      Item.DarkLegionArmor
+        .socket(Crystals.allPerfectVoids),
+      Item.ScytheT2
+        .socket(Crystals.allPerfectFires),
+      Item.ScytheT2
+        .socket(Crystals.allPerfectFires),
+      Item.BioSpinalEnhancer
+        .socket(Crystals.allPerfectPinks),
+      Item.BioSpinalEnhancer
+        .socket(Crystals.allPerfectOranges),
+    ]
+  ));
+
   // DL (+Abysses) + Dual Rifts (+Amulets) + Bios (+Pinks)
   combatants.push(Player.generateFullyTrainedPlayer(
     'Dual Rifts w/ Bios (Abyss/Ammy Cs)',
@@ -349,7 +367,7 @@ Player.generateReferencePlayers = function() {
     ]
   ));
 
-  // DL (+Voids) + Dual VBows (+Fires) + Scout Drones (+Yellows)
+  // DL (+Voids) + Dual VBows (+AmuletC's) + Scout Drones (+Yellows)
   combatants.push(Player.generateFullyTrainedPlayer(
     'Dual VBows w/ Scouts',
     { hp: 70, speed: 9, accuracy: 4, dodge: 100 },
@@ -357,9 +375,9 @@ Player.generateReferencePlayers = function() {
       Item.DarkLegionArmor
         .socket(Crystals.allPerfectVoids),
       Item.VoidBow
-        .socket(Crystals.allPerfectFires),
+        .socket(Crystals.allAmuletCrystals),
       Item.VoidBow
-        .socket(Crystals.allPerfectFires),
+        .socket(Crystals.allAmuletCrystals),
       Item.ScoutDrones
         .socket(Crystals.allPerfectYellows),
       Item.ScoutDrones
@@ -576,6 +594,17 @@ let Item = deepFreeze({
     def_skill:   10
   }),
 
+  ScytheT2: new Equipment({
+    name:        'Scythe T2',
+    type:        'melee',
+    min_damage:  80,
+    max_damage:  101,
+    accuracy:    38,
+    speed:       75,
+    melee_skill: 45,
+    def_skill:   18
+  }),
+
   VoidSword: new Equipment({
     name:        'Void Sword',
     type:        'melee',
@@ -675,7 +704,7 @@ let Item = deepFreeze({
     name:        'Orphic Amulet',
     accuracy:    10,
     dodge:       10,
-    def_skill:   -25,
+    def_skill:   10,
     gun_skill:   50,
     melee_skill: 50,
     proj_skill:  50,
